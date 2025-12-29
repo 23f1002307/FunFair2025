@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Leader Board{% endblock %}
+{% block main %}
+<h1>View your Rank!</h1>
+<br>
+<table>
+<tr>
+<th>Rank</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Marks ( out of 30</th>
+<th>Mode of Payment</th>
+</tr>
+{% for player in all_players %}
+<tr>
+<td>{{loop.index}}</td>
+<td>{{player.first_name}}</td>
+<td>{{player.last_name}}</td>
+<td>
+<p><b>{{player.marks}}</b></p>
+<br>
+<form action="{{url_for ( 'update_marks', player_id = player.id )}}" method="POST">
+<input type="number" name="marks" required>
+<button type="submit">Update</button>
+</form>
+</td>
+<td>
+<p>{{player.payment_mode}}</p>
+<form action="{{url_for ( 'update_payment_mode', player_id = player.id, mode = 'online' )}}" method="POST">
+<button type="submit">Online</button>
+</form>
+<form action="{{url_for ( 'update_payment_mode', player_id = player.id, mode = 'cash' )}}" method="POST">
+<button type="submit">Cash</button>
+</form>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+{% endblock %}

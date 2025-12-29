@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="player's data">
+    <meta name="author" content="Joham Chouhan | Developer">
+    <title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" href="{{url_for ( 'static', filename='css/style.css' )}}">
+</head>
+<body>
+<header class="header">
+    <div class="logo-container">
+        <img src="{{url_for('static', filename='images/pbma_logo.avif')}}" alt="PBMA logo" class="logo">
+        <div class="logo-text">
+            <p class="app-name">Welcome to Fun Fair 2025!</p>
+            <p class="slogan">Smart management, simple access</p>
+        </div>
+    </div>
+<nav>
+<ul>
+<li><a href="{{url_for ( 'index' )}}">Home</a></li>
+<li><a href="{{url_for ( 'leader_board' )}}">Leader Board</a></li>
+{% block nav %}{%endblock %}
+</ul>
+</nav>
+</header>
+<main>
+{% block main %}
+{% endblock %}
+</main>
+<footer>
+<p>Fun Fair Management System &copy; 2025, Developer - Joham Chouhan</p>
+</footer>
+</body>
+</html>
