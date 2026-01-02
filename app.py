@@ -14,9 +14,8 @@ def index ( ):
 		first_name = request.form.get ( "first_name" )
 		last_name = request.form.get ( "last_name" )
 		contact_number = request.form.get ( "contact_number" )
-		email = request.form.get ( "email" )
 		payment_mode = "pending"
-		new_player = Player ( first_name = first_name, last_name = last_name, phone = contact_number, email = email, marks = 0, payment_mode = payment_mode )
+		new_player = Player ( first_name = first_name, last_name = last_name, phone = contact_number, marks = 0, payment_mode = payment_mode )
 		db.session.add ( new_player )
 		db.session.commit ( )
 		return redirect ( url_for ( 'leader_board' ))
